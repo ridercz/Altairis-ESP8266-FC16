@@ -9,7 +9,6 @@
 ** 3V3 <-> VCC, GND <-> GND, D7 <-> DIN, D8 <-> CS, D5 <-> CLK
 ******************************************************************************/
 
-#include <LedControlSPIESP8266.h>
 #include <FC16.h>
 
 const int csPin = D8;						// CS pin used to connect FC16

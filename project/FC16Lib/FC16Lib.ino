@@ -1,4 +1,3 @@
-#include <LedControlSPIESP8266.h>
 #include "FC16.h"
 
 // Hardware setup (ESP8266 <-> FC16):
