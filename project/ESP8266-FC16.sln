@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FC16Lib", "FC16Lib\FC16Lib.vcxproj", "{C5F80730-F44F-4478-BDAE-6634EFC2CA88}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Drawing", "Drawing\Drawing.vcxproj", "{F769C176-94AF-4B70-A6C6-49D02A87DD5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{EC2C5A1B-C254-4538-B15E-6ED7867A3298}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bitmap", "Bitmap\Bitmap.vcxproj", "{9A45CFC0-7DBB-4D95-A153-92BA8A6A3651}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextScroll", "TextScroll\TextScroll.vcxproj", "{165424CE-9918-4686-A22C-40590E4F5B45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.ActiveCfg = Debug|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.Build.0 = Debug|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.ActiveCfg = Release|Win32
+		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Build.0 = Release|Win32
+		{F769C176-94AF-4B70-A6C6-49D02A87DD5D}.Debug|x86.ActiveCfg = Debug|Win32
+		{F769C176-94AF-4B70-A6C6-49D02A87DD5D}.Debug|x86.Build.0 = Debug|Win32
+		{F769C176-94AF-4B70-A6C6-49D02A87DD5D}.Release|x86.ActiveCfg = Release|Win32
+		{F769C176-94AF-4B70-A6C6-49D02A87DD5D}.Release|x86.Build.0 = Release|Win32
+		{9A45CFC0-7DBB-4D95-A153-92BA8A6A3651}.Debug|x86.ActiveCfg = Debug|Win32
+		{9A45CFC0-7DBB-4D95-A153-92BA8A6A3651}.Debug|x86.Build.0 = Debug|Win32
+		{9A45CFC0-7DBB-4D95-A153-92BA8A6A3651}.Release|x86.ActiveCfg = Release|Win32
+		{9A45CFC0-7DBB-4D95-A153-92BA8A6A3651}.Release|x86.Build.0 = Release|Win32
+		{165424CE-9918-4686-A22C-40590E4F5B45}.Debug|x86.ActiveCfg = Debug|Win32
+		{165424CE-9918-4686-A22C-40590E4F5B45}.Debug|x86.Build.0 = Debug|Win32
+		{165424CE-9918-4686-A22C-40590E4F5B45}.Release|x86.ActiveCfg = Release|Win32
+		{165424CE-9918-4686-A22C-40590E4F5B45}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F769C176-94AF-4B70-A6C6-49D02A87DD5D} = {EC2C5A1B-C254-4538-B15E-6ED7867A3298}
+		{9A45CFC0-7DBB-4D95-A153-92BA8A6A3651} = {EC2C5A1B-C254-4538-B15E-6ED7867A3298}
+		{165424CE-9918-4686-A22C-40590E4F5B45} = {EC2C5A1B-C254-4538-B15E-6ED7867A3298}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+FC16	        KEYWORD1
+getColumnCount	KEYWORD2
+setColumn       KEYWORD2
+setLed          KEYWORD2
+clearDisplay    KEYWORD2
+setIntensity    KEYWORD2
+shutdown        KEYWORD2
+setText         KEYWORD2
+setBitmap       KEYWORD2
+update          KEYWORD2
