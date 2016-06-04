@@ -13,6 +13,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bitmap", "Bitmap\Bitmap.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextScroll", "TextScroll\TextScroll.vcxproj", "{165424CE-9918-4686-A22C-40590E4F5B45}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AD392DA6-B019-40A0-9673-E72B66305DF3}"
+	ProjectSection(SolutionItems) = preProject
+		..\keywords.txt = ..\keywords.txt
+		..\library.properties = ..\library.properties
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86

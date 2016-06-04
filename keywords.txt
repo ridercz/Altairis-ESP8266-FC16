@@ -1,3 +1,5 @@
+# Keyword definition for Arduino IDE
+
 FC16	        KEYWORD1
 getColumnCount	KEYWORD2
 setColumn       KEYWORD2
