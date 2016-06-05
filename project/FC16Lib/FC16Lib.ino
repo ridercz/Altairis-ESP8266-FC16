@@ -1,3 +1,4 @@
+#include <LedControlSPIESP8266.h>	// Not needed for functionality, but for vMicro IntelliSense
 #include "FC16.h"
 
 // Hardware setup (ESP8266 <-> FC16):
@@ -14,29 +15,39 @@ const byte BMP_8D[] = { 0xFF, 0x7E, 0x3C, 0x18, 0x00, 0x7E, 0x08, 0x08, 0x7E, 0x
 FC16 display = FC16(csPin, displayCount);
 
 void setup() {
-	display.shutdown(false);	// turn on display
-	display.setIntensity(8);	// set medium brightness
-	display.clearDisplay();		// turn all LED off
+	// Setup LED
+	pinMode(LED_BUILTIN, OUTPUT);		// enable builtin LED
+	digitalWrite(LED_BUILTIN, HIGH);	// turn it off
+
+	// Setup display
+	display.shutdown(false);			// turn on display
+	display.clearDisplay();				// turn all LED off
+	display.setIntensity(8);			// set medium brightness
 
 	if (displayCount <= 4) {
-		// Show sample bitmap for 4 displays
-		display.setBitmap(BMP_4D);
+		display.setBitmap(BMP_4D);		// show sample bitmap for 4 displays
 	} else {
-		// Show sample bitmap for 8 displays
-		display.setBitmap(BMP_8D);
+		display.setBitmap(BMP_8D);		// show sample bitmap for 8 displays
 	}
 
-	// Wait for 5 seconds
-	delay(5000);
+	// Wait for 1 second
+	delay(1000);
 
 	// Set text to display
-	display.setText("\x10 ESP 8266 & FC-16 \x11 MAX72xx-based LED display library demo \x03 checkbox \x0B empty \x0C cross \x0D check \x0E full");
+	display.setText("\x10 ESP 8266 & FC-16 \x11 MAX72xx-based LED display library demo");
 }
 
 void loop() {
 	// Perform scroll
-	display.update();
+	bool done = display.update();
 
 	// Wait for 30 ms
 	delay(scrollDelay);
+
+	if (done) {
+		// Blink led when animation is done
+		digitalWrite(LED_BUILTIN, LOW);
+		delay(500);
+		digitalWrite(LED_BUILTIN, HIGH);
+	}
 }

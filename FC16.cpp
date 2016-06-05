@@ -11,6 +11,10 @@ int FC16::getColumnCount() {
 	return _maxColumns;
 }
 
+int FC16::getTextColumns() {
+	return _textColumns;
+}
+
 void FC16::setColumn(int col, byte value) {
 	if (col < 0) col = 0;
 	if (col >= _maxColumns) col = _maxColumns - 1;
@@ -68,6 +72,12 @@ void FC16::setText(char* text) {
 		_text[i] = '\x7F';
 	}
 
+	// Compute number of columns
+	_textColumns = _textSize;						// start with number of 1-px spaces between letters
+	for (int i = 0; i < _textSize; i++) {
+		_textColumns += FONT_LENGTHS[_text[i]];		// Add letter width
+	}
+
 	_isScrolling = true;
 }
 
@@ -78,8 +88,8 @@ void FC16::setBitmap(const byte* bitmap) {
 	_isScrolling = false;
 }
 
-void FC16::update() {
-	if (!_isScrolling) return;
+bool FC16::update() {
+	if (!_isScrolling) return false;
 
 	int curCharIndexSave2 = _curCharIndex;
 	int curCharBitSave2 = _curCharBit;
@@ -139,6 +149,17 @@ void FC16::update() {
 			_curCharIndex = 0;
 		}
 	}
+
+	// Check if animation finished
+	bool done = false;
+	_updateCount++;
+	if (_updateCount == _textColumns - 8 * _maxDevices) {
+		// Animation completed - displaying just empty end spaces
+		done = true;
+	}
+	if (_updateCount == _textColumns) _updateCount = 0;
+
+	return done;
 }
 
 byte FC16::reverseBits(byte b) {

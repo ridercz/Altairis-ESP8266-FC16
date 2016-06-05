@@ -18,9 +18,11 @@ private:
 	LedControl _lc;
 	char* _text;
 	int _textSize = 0;
+	int _textColumns = 0;
 	int _curCharIndex = 0;
 	int _curCharBit = 0;
 	bool _isScrolling = false;
+	int _updateCount = 0;
 
 	byte reverseBits(byte b);
 
@@ -29,6 +31,8 @@ public:
 	FC16(int csPin, int numDevices = 1);
 
 	int getColumnCount();
+
+	int getTextColumns();
 
 	void setColumn(int col, byte value);
 
@@ -44,7 +48,7 @@ public:
 
 	void setBitmap(const byte* bitmap);
 
-	void update();
+	bool update();
 
 };
 
