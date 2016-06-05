@@ -4,7 +4,7 @@
 // 3V3 <-> VCC, GND <-> GND, D7 <-> DIN, D8 <-> CS, D5 <-> CLK
 
 const int csPin = D8;			// CS pin used to connect FC16
-const int displayCount = 4;		// Number of displays; usually 4 or 8
+const int displayCount = 8;		// Number of displays; usually 4 or 8
 const int scrollDelay = 30;		// Scrolling speed - pause in ms
 
 // Sample bitmaps, every byte encodes single column
@@ -30,7 +30,7 @@ void setup() {
 	delay(5000);
 
 	// Set text to display
-	display.setText("\x10 ESP 8266 & FC-16 \x11 MAX72xx-based LED display library demo \x03");
+	display.setText("\x10 ESP 8266 & FC-16 \x11 MAX72xx-based LED display library demo \x03 checkbox \x0B empty \x0C cross \x0D check \x0E full");
 }
 
 void loop() {
