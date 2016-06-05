@@ -1,6 +1,6 @@
 # Altairis ESP8266-FC16 Library
 
-Library for using the FC-16 display module (based on MAX72xx) with ESP8266 (NodeMCU) and Arduino IDE.
+**Library for using the FC-16 display module (based on MAX72xx) with ESP8266 (NodeMCU) and Arduino IDE.**
 
 ![FC-16](http://i.imgur.com/BfVPy8h.jpg)
 
@@ -19,12 +19,14 @@ There was a way, using the *[LedControlSPIESP8266](https://github.com/labsud/Led
 * Support for showing bitmaps.
 * Support for scrolling text. Not fancy Parola-like effects, but plain right-to-left scroll is good enough.
 
-## How to Install
+## How to Install and Use
 
 1. Download and intall [LedControlSPIESP8266](https://github.com/labsud/LedControlSpipESP8266) library, which is prerequisite.
 2. Download latest version from [Releases](https://github.com/ridercz/Altairis-ESP8266-FC16/releases) as a ZIP file and then use standard ZIP library install process. Or clone this repository into your `Libraries` folder.
 
-## Development note
+For documentation see `examples` folder and [wiki](https://github.com/ridercz/Altairis-ESP8266-FC16/wiki).
+
+## Development Note
 
 I'm using Visual Studio 2015 and the "Visual Micro Arduino IDE" plugin for Arduino projects. There is appropriate `.sln` in the `project` folder. You can edit the `.ino`, `.h` and `.cpp` files in Arduino IDE or any other editor of your choice, just ignore the `project` folder.
 
