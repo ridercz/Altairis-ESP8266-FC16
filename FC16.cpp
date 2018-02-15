@@ -88,6 +88,44 @@ void FC16::setBitmap(const byte* bitmap) {
 	_isScrolling = false;
 }
 
+void FC16::setClock(byte part1, byte part2, byte part3, int offset) {
+	// Get characters
+	byte numberChars[] = {
+		part1 / 10, part1 % 10,
+		part2 / 10, part2 % 10,
+		part3 / 10, part3 % 10
+	};
+
+	byte column = offset;
+	for (byte charNumber = 0; charNumber < 6; charNumber++) {
+		byte charWidth = charNumber < 4 ? 4 : 3;						// Get width of char at current position
+		byte charIndex = numberChars[charNumber] * charWidth;			// Get beginning index in font
+
+		// Add chars from font
+		for (byte charOffset = 0; charOffset < charWidth; charOffset++) {
+			if (charWidth == 4) {
+				setColumn(column, BIGNUM_CHARS[charIndex + charOffset]);
+			}
+			else {
+				setColumn(column, SMALLNUM_CHARS[charIndex + charOffset]);
+			}
+			column++;
+		}
+
+		// Add space after a char
+		column++;
+
+		// Add ":" after second and fourth char
+		if (charNumber == 1 || charNumber == 3) {
+			setColumn(column, DOUBLE_DOT_CHAR);
+			column += 2;
+		}
+
+	}
+
+	_isScrolling = false;
+}
+
 bool FC16::update() {
 	if (!_isScrolling) return false;
 

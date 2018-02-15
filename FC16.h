@@ -48,6 +48,8 @@ public:
 
 	void setBitmap(const byte* bitmap);
 
+	void setClock(byte part1, byte part2, byte part3, int offset = 0);
+
 	bool update();
 
 };
