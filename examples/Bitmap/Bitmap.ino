@@ -6,7 +6,7 @@
 ** significant bit on top.
 **
 ** Hardware setup (ESP8266 <-> FC16):
-** 3V3 <-> VCC, GND <-> GND, D7 <-> DIN, D8 <-> CS, D5 <-> CLK
+** 5V <-> VCC, GND <-> GND, D7 <-> DIN, D8 <-> CS, D5 <-> CLK
 ******************************************************************************/
 
 #include <FC16.h>

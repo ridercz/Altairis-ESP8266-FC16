@@ -2,7 +2,7 @@
 #include "FC16.h"
 
 // Hardware setup (ESP8266 <-> FC16):
-// 3V3 <-> VCC, GND <-> GND, D7 <-> DIN, D8 <-> CS, D5 <-> CLK
+// 5V <-> VCC, GND <-> GND, D7 <-> DIN, D8 <-> CS, D5 <-> CLK
 
 const int csPin = D8;			// CS pin used to connect FC16
 const int displayCount = 8;		// Number of displays; usually 4 or 8
