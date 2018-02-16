@@ -28,10 +28,10 @@ For documentation see `examples` folder and [wiki](https://github.com/ridercz/Al
 
 ## Development Note
 
-I'm using Visual Studio 2015 and the "Visual Micro Arduino IDE" plugin for Arduino projects. There is appropriate `.sln` in the `project` folder. You can edit the `.ino`, `.h` and `.cpp` files in Arduino IDE or any other editor of your choice, just ignore the `project` folder.
+I'm using Visual Studio 2017 and the "Visual Micro Arduino IDE" plugin for Arduino projects. There is appropriate `.sln` in the `project` folder. You can edit the `.ino`, `.h` and `.cpp` files in Arduino IDE or any other editor of your choice, just ignore the `project` folder.
 
 ## License
 
-Copyright (c) Michal Altair Valasek, 2016
+Copyright (c) Michal Altair Valasek, 2016-2018
 
 Licensed under terms of the MIT license.
