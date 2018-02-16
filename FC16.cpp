@@ -7,6 +7,20 @@ FC16::FC16(int csPin, int numDevices)
 	_maxColumns = _maxDevices * 8;
 }
 
+void FC16::shutdown(bool status) {
+	for (int i = 0; i < _maxDevices; i++) {
+		_lc.shutdown(i, status);
+	}
+}
+
+void FC16::begin() {
+	shutdown(false);
+}
+
+void FC16::end() {
+	shutdown(true);
+}
+
 int FC16::getColumnCount() {
 	return _maxColumns;
 }
@@ -52,12 +66,6 @@ void FC16::setIntensity(int intensity) {
 
 	for (int i = 0; i < _maxDevices; i++) {
 		_lc.setIntensity(i, intensity);
-	}
-}
-
-void FC16::shutdown(bool status) {
-	for (int i = 0; i < _maxDevices; i++) {
-		_lc.shutdown(i, status);
 	}
 }
 

@@ -40,7 +40,7 @@ const int scrollDelay = 30;		// Scrolling speed - pause in ms
 FC16 display = FC16(csPin, displayCount);
 
 void setup() {
-	display.shutdown(false);	// turn on display
+	display.begin();			// turn on display
 	display.setIntensity(8);	// set medium brightness
 	display.clearDisplay();		// turn all LED off
 

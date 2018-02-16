@@ -15,7 +15,7 @@ int lastSecond = -1;
 FC16 display = FC16(csPin, displayCount);	// Define display parameters
 
 void setup() {
-	display.shutdown(false);	// turn on display
+	display.begin();			// turn on display
 	display.setIntensity(8);	// set medium brightness
 	display.clearDisplay();		// turn all LED off
 }

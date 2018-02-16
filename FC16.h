@@ -26,9 +26,15 @@ private:
 
 	byte reverseBits(byte b);
 
+	void shutdown(bool status);
+
 public:
 
 	FC16(int csPin, int numDevices = 1);
+
+	void begin();
+
+	void end();
 
 	int getColumnCount();
 
@@ -41,8 +47,6 @@ public:
 	void clearDisplay();
 
 	void setIntensity(int intensity);
-
-	void shutdown(bool status);
 
 	void setText(char* text);
 

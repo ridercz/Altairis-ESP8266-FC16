@@ -20,7 +20,7 @@ void setup() {
 	digitalWrite(LED_BUILTIN, HIGH);	// turn it off
 
 	// Setup display
-	display.shutdown(false);			// turn on display
+	display.begin();					// turn on display
 	display.clearDisplay();				// turn all LED off
 	display.setIntensity(8);			// set medium brightness
 
