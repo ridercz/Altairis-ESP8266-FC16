@@ -89,7 +89,7 @@ void FC16::setText(char* text) {
 	_isScrolling = true;
 }
 
-void FC16::setBitmap(const byte* bitmap) {
+void FC16::setBitmap(byte* bitmap) {
 	for (byte i = 0; i < _maxColumns; i++) {
 		setColumn(i, bitmap[i]);
 	}
