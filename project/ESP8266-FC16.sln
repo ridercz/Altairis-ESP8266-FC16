@@ -15,6 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextScroll", "TextScroll\Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AD392DA6-B019-40A0-9673-E72B66305DF3}"
 	ProjectSection(SolutionItems) = preProject
+		..\FontDesigner.xlsx = ..\FontDesigner.xlsx
 		..\keywords.txt = ..\keywords.txt
 		..\library.properties = ..\library.properties
 		..\LICENSE = ..\LICENSE
