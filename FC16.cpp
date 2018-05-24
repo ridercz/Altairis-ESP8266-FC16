@@ -86,7 +86,10 @@ void FC16::setText(char* text) {
 		_textColumns += FONT_LENGTHS[_text[i]];		// Add letter width
 	}
 
+	// Reset scroll
 	_isScrolling = true;
+	_curCharIndex = 0;
+	_curCharBit = 0;
 }
 
 void FC16::setBitmap(byte* bitmap) {
