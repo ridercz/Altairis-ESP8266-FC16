@@ -124,11 +124,13 @@ void FC16::setClock(byte part1, byte part2, byte part3, int offset) {
 		}
 
 		// Add space after a char
+		setColumn(column, 0);
 		column++;
 
 		// Add ":" after second and fourth char
 		if (charNumber == 1 || charNumber == 3) {
 			setColumn(column, DOUBLE_DOT_CHAR);
+			setColumn(column + 1, 0);
 			column += 2;
 		}
 
