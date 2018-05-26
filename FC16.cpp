@@ -99,7 +99,7 @@ void FC16::setBitmap(byte* bitmap) {
 	_isScrolling = false;
 }
 
-void FC16::setClock(byte part1, byte part2, byte part3, int offset) {
+void FC16::setClock(byte part1, byte part2, byte part3, int offset, bool showDots) {
 	// Get characters
 	byte numberChars[] = {
 		part1 / 10, part1 % 10,
@@ -129,7 +129,12 @@ void FC16::setClock(byte part1, byte part2, byte part3, int offset) {
 
 		// Add ":" after second and fourth char
 		if (charNumber == 1 || charNumber == 3) {
-			setColumn(column, DOUBLE_DOT_CHAR);
+			if(showDots) {
+				setColumn(column, DOUBLE_DOT_CHAR);
+			}
+			else {
+				setColumn(column, 0);
+			}
 			setColumn(column + 1, 0);
 			column += 2;
 		}
