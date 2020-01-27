@@ -32,7 +32,7 @@ I'm using Visual Studio 2017 and the "Visual Micro Arduino IDE" plugin for Ardui
 
 ## License
 
-Copyright (c) Michal Altair Valasek, 2016-2018
+Copyright (c) Michal Altair Valasek, 2016-2020
 
 Licensed under terms of the MIT license.
 
