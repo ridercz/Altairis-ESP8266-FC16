@@ -48,7 +48,7 @@ public:
 
 	void setIntensity(int intensity);
 
-	void setText(char* text);
+	void setText(const char* text);
 
 	void setBitmap(byte* bitmap);
 

@@ -69,7 +69,7 @@ void FC16::setIntensity(int intensity) {
 	}
 }
 
-void FC16::setText(char* text) {
+void FC16::setText(const char* text) {
 	_textSize = strlen(text) + _maxDevices;
 	_text = (char*)malloc(_textSize + 1);
 	strcpy(_text, text);
