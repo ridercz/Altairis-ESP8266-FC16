@@ -50,7 +50,7 @@ public:
 
 	void setIntensity(int intensity);
 
-	void setText(char* text, int deviceLeft = 0, int deviceRight = 0);
+	void setText(const char* text, int deviceLeft = 0, int deviceRight = 0);
 
 	void setBitmap(byte* bitmap);
 

@@ -68,7 +68,7 @@ void FC16::setIntensity(int intensity) {
 	}
 }
 
-void FC16::setText(char* text, int deviceLeft, int deviceRight) {
+void FC16::setText(const char* text, int deviceLeft, int deviceRight) {
 	// Set scroll area
 	_deviceAddrBegin = _maxDevices - ((deviceLeft >= 0 && deviceLeft <= _maxDevices) ? deviceLeft : 0) - 1;
 	_deviceAddrEnd = _maxDevices - ((deviceRight > 0 && deviceRight <= _maxDevices) ? deviceRight : _maxDevices) - 1;
