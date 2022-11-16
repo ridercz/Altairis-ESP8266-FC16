@@ -19,6 +19,8 @@ private:
 	char* _text;
 	int _textSize = 0;
 	int _textColumns = 0;
+	int _deviceAddrBegin = 0;
+	int _deviceAddrEnd = 0;
 	int _curCharIndex = 0;
 	int _curCharBit = 0;
 	bool _isScrolling = false;
@@ -37,7 +39,7 @@ public:
 	void end();
 
 	int getColumnCount();
-
+ 
 	int getTextColumns();
 
 	void setColumn(int col, byte value);
@@ -48,7 +50,7 @@ public:
 
 	void setIntensity(int intensity);
 
-	void setText(const char* text);
+	void setText(char* text, int deviceLeft = 0, int deviceRight = 0);
 
 	void setBitmap(byte* bitmap);
 

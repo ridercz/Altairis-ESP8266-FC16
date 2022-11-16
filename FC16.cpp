@@ -19,6 +19,7 @@ void FC16::begin() {
 
 void FC16::end() {
 	shutdown(true);
+	_isScrolling = false;
 }
 
 int FC16::getColumnCount() {
@@ -37,7 +38,6 @@ void FC16::setColumn(int col, byte value) {
 	int phyCol = col % 8;
 
 	_lc.setColumn(addr, phyCol, reverseBits(value));
-	_isScrolling = false;
 }
 
 void FC16::setLed(int row, int col, bool state) {
@@ -50,7 +50,6 @@ void FC16::setLed(int row, int col, bool state) {
 	int phyCol = col % 8;
 
 	_lc.setLed(addr, row, phyCol, state);
-	_isScrolling = false;
 }
 
 void FC16::clearDisplay() {
@@ -69,8 +68,14 @@ void FC16::setIntensity(int intensity) {
 	}
 }
 
-void FC16::setText(const char* text) {
-	_textSize = strlen(text) + _maxDevices;
+void FC16::setText(char* text, int deviceLeft, int deviceRight) {
+	// Set scroll area
+	_deviceAddrBegin = _maxDevices - ((deviceLeft >= 0 && deviceLeft <= _maxDevices) ? deviceLeft : 0) - 1;
+	_deviceAddrEnd = _maxDevices - ((deviceRight > 0 && deviceRight <= _maxDevices) ? deviceRight : _maxDevices) - 1;
+	int scrollDeviceCount = _deviceAddrBegin - _deviceAddrEnd + 1;
+	
+	// Compute text size
+	_textSize = strlen(text) + scrollDeviceCount;
 	_text = (char*)malloc(_textSize + 1);
 	strcpy(_text, text);
 
@@ -81,7 +86,7 @@ void FC16::setText(const char* text) {
 	}
 
 	// Compute number of columns
-	_textColumns = _textSize;						// start with number of 1-px spaces between letters
+	_textColumns = _textSize;						// Start with number of 1-px spaces between letters
 	for (int i = 0; i < _textSize; i++) {
 		_textColumns += FONT_LENGTHS[_text[i]];		// Add letter width
 	}
@@ -96,7 +101,6 @@ void FC16::setBitmap(byte* bitmap) {
 	for (byte i = 0; i < _maxColumns; i++) {
 		setColumn(i, bitmap[i]);
 	}
-	_isScrolling = false;
 }
 
 void FC16::setClock(byte part1, byte part2, byte part3, int offset, bool showDots) {
@@ -140,8 +144,6 @@ void FC16::setClock(byte part1, byte part2, byte part3, int offset, bool showDot
 		}
 
 	}
-
-	_isScrolling = false;
 }
 
 bool FC16::update() {
@@ -151,8 +153,8 @@ bool FC16::update() {
 	int curCharBitSave2 = _curCharBit;
 	char curChar;
 
-	for (int addr = _maxDevices - 1; addr >= 0; addr--) {
-		// Set up rows on current  display
+	for (int addr = _deviceAddrBegin; addr >= _deviceAddrEnd; addr--) {
+		// Set up rows on current display
 		for (int row = 0; row < 8; row++) {
 			byte outputByte = 0;
 			curChar = _text[_curCharIndex];
@@ -194,11 +196,11 @@ bool FC16::update() {
 	_curCharBit = curCharBitSave2;
 	curChar = _text[_curCharIndex];
 
-	// advance the current character bit of current character
+	// Advance the current character bit of current character
 	_curCharBit++;
 
 	if (_curCharBit > FONT_LENGTHS[curChar]) {
-		// we are past the end of this character, so advance.
+		// We are past the end of this character, so advance.
 		_curCharBit = 0;
 		_curCharIndex += 1;
 		if (_curCharIndex + 1 > _textSize) {
