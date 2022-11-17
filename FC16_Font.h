@@ -161,7 +161,7 @@ const byte FONT_LENGTHS[] = {
 	2, 4, 5, 4, 5, 4, 4, 4,							// `abcdefg
 	5, 2, 3, 4, 2, 6, 5, 4,							// hijklmno
 	5, 5, 5, 4, 3, 5, 5, 5,							// pqrstuvw
-	5, 4, 4, 3, 1, 3, 7, 7							// xyz{|}~
+	5, 4, 4, 3, 1, 3, 7, 8							// xyz{|}~
 };
 
 const byte BIGNUM_CHARS[] = {
